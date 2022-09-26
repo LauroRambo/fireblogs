@@ -26,7 +26,7 @@ import Arrow from "../assets/Icons/arrow-right-light.svg";
 import BlogPost from "../components/BlogPost";
 import BlogCard from "../components/BlogCard";
 export default {
-  name: "Home",
+  name: "home",
   components: { BlogPost, BlogCard, Arrow },
   data() {
     return {
