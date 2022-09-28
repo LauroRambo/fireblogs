@@ -2,10 +2,10 @@
   <div class="blog-card">
     <div v-show="editPost" class="icons">
       <div class="icon">
-      <Edit class="edit" />
+        <Edit class="edit" />
       </div>
-      <div class="icon">
-      <Delete class="delete" />
+      <div @click="deletePost" class="icon">
+        <Delete class="delete" />
       </div>
     </div>
     <img :src="post.blogCoverPhoto" alt="">
@@ -29,6 +29,11 @@ export default {
     Arrow,
     Edit,
     Delete,
+  },
+  methods: {
+    deletePost() {
+      this.$store.dispatch("deletePost", this.post.blogID);
+    }
   },
   computed: {
     editPost() {
