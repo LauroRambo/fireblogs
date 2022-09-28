@@ -1,21 +1,20 @@
 <template>
   <div class="blog-card">
-   <div v-show="editPost" class="icons">
-    <div class="icon">
-     <Edit class="edit" />
+    <div v-show="editPost" class="icons">
+      <div class="icon">
+      <Edit class="edit" />
+      </div>
+      <div class="icon">
+      <Delete class="delete" />
+      </div>
     </div>
-    <div class="icon">
-     <Delete class="delete" />
+    <img :src="post.blogCoverPhoto" alt="">
+    <div class="info">
+      <h4>{{ post.blogTitle }}</h4>
+      <h6>Posted on: {{ new Date(post.blogDate).toLocaleString('en-us', {dataStyle: "long"}) }}</h6>
+      <router-link class="link" :to="{ name: 'ViewBlog', params: {blogid: this.post.blogID } }">View the Post <Arrow class="arrow" />
+      </router-link>
     </div>
-   </div>
-   <img :src="require(`../assets/blogCards/${post.blogCoverPhoto}.jpg`)" alt="">
-   <div class="info">
-    <h4>{{ post.blogTitle }}</h4>
-    <h6>Posted on: {{ post.blogDate }}</h6>
-    <router-link class="link" to="#">
-     View the Post <Arrow class="arrow" />
-    </router-link>
-   </div>
   </div>
 </template>
 
